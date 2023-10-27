@@ -21,9 +21,9 @@ def is_valid_input(input_to_check):
     print("function not written yet")
 
 def ask_to_buy(item, cost, point_penalty):
-    choice = print(f"Do you want to buy {item} for ${cost}? ")
+    choice = input(f"Do you want to buy {item} for ${cost}? ")
     if choice == 'y':
-        money = money - cost
+        money = money - cost # use return values
         print(f"UPDATE: {item} added to cart")
         # Add item to shopping cart list
         # break?
