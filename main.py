@@ -64,3 +64,13 @@ if input("Do you want to get a shopping cart?: ") == 'y':
 else:
     game_over("You need a shopping cart to go shopping")
 
+ask_to_buy('beans', 3, 1)
+ask_to_buy('eggs', 5, 1)
+ask_to_buy('milk', 5, 3)
+ask_to_buy('bread', 4, 1)
+ask_to_buy('coffee', 8, 2)
+ask_to_buy('fruit', 18, 4)
+ask_to_buy('veggies', 15, 2)
+ask_to_buy('candy', 5, 1)
+
+# iPhone
