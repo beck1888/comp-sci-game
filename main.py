@@ -16,7 +16,14 @@ points = 10
 # Set list
 #// put a 'shopping cart' list here
 
-# Defs
+# Def functions
+def give_credit():
+    print(
+        '''CREDITS:
+        Thank you to freesound.org for providing the sound clips used in this project.
+        '''
+    )
+
 def is_valid_input(input_to_check):
     print("function not written yet")
 
