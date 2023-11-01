@@ -67,6 +67,7 @@ def update_money(subtraction):
 
 # Intro/ welcome
 print("For now, just type y or n for each question")
+give_credit()
 
 # Code/game
 
@@ -76,6 +77,7 @@ if input("Do you want to get a shopping cart?: ") == 'y':
 else:
     game_over("You need a shopping cart to go shopping")
 
+# Buy things y/n
 ask_to_buy('beans', 3, 1)
 ask_to_buy('eggs', 5, 1)
 ask_to_buy('milk', 5, 3)
@@ -84,5 +86,17 @@ ask_to_buy('coffee', 8, 2)
 ask_to_buy('fruit', 18, 4)
 ask_to_buy('veggies', 15, 2)
 ask_to_buy('candy', 5, 1)
+ask_to_buy('book', 15, 1)
 
-# iPhone
+# iPhone trick question
+buy_iphone = input("Do you want to buy an iPhone for $1,000?")
+if buy_iphone == 'y':
+    pass
+    # game over
+else:
+    pass
+
+# Ask to pay for stuff
+# Make sure enough money exists
+# Drive home
+# Put stuff away
