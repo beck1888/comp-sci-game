@@ -52,7 +52,7 @@ def ask_to_buy(item, cost, point_penalty, money, points):
 
 def game_over(reason):
     for _ in range(10):
-        print()
+        print() # Create a space to show game over
     print(f"GAME OVER: {reason}.")
     exit()
 
@@ -69,6 +69,13 @@ def update_money(subtraction):
         game_over("You've run out of money!")
     else:
         return
+    
+def trick_question(question, game_over_note, update_when_no):
+    user_choice = input(f"{question}")
+    if user_choice == 'y':
+        game_over(str(game_over_note))
+    else:
+        print(str(update_when_no))
 
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
@@ -105,15 +112,50 @@ print() # Print new lines to make the end more clear
 print()
 print(f"Money: {str(money)}")
 print(f"Points: {str(points)}")
-time.sleep(1000000) # Hold the screen
+time.sleep(3) # Hold the screen
 
-# iPhone trick question
-buy_iphone = input("Do you want to buy an iPhone for $1,000?")
-if buy_iphone == 'y':
-    pass
-    # game over
+# Trick question 1
+trick_question("Do you want to buy an iPhone for $1,000? ", "An iPhone is out of your budget", "UPDATE: iPhone skipped")
+
+# Validate money and points
+
+# More trick questions if money was validated
+user_choice = input("Do you want to pay for your stuff? ")
+if user_choice == 'y':
+    print("UPDATE: Checkout complete!")
 else:
-    pass
+    clear_console()
+    # Siren
+    print("GAME OVER: It is illegal to steal.")
+    time.sleep(5) # Siren duration
+    exit()
+
+user_choice = input("Do you want to drive home at 100mph? ")
+if user_choice == 'n':
+    print("UPDATE: You made it home safe and sound!")
+else:
+    clear_console()
+    # Siren
+    print("GAME OVER: You got a ticket for more than your remaining budget.")
+    time.sleep(5) # Siren duration
+    exit()
+
+user_choice = input("Do you want to put away your purchase right away? ")
+if user_choice == 'y':
+    pass # Win
+else:
+    clear_console()
+    # Fail sound 
+    print("GAME OVER: Your food went rotten.")
+    time.sleep(10) # Duration of the fail sound
+    exit()
+
+# WIN!!!
+clear_console()
+print(f"You have {money} dollars and {points} points left!!!")
+print("You win!!! Nice job!!!")
+# play win sound
+
 
 # Ask to pay for stuff
 # Make sure enough money exists
