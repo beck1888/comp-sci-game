@@ -5,6 +5,9 @@ import os
 import time
 import pygame # pygame is NEEDED for the file to run (it handles sound)
 
+# Start helper apps
+pygame.init()
+
 
 # Make some vars global
 global money
@@ -77,6 +80,20 @@ def trick_question(question, game_over_note, update_when_no):
     else:
         print(str(update_when_no))
 
+def play_sound_effect(name):
+    if name == 'police':
+        pygame.mixer.music.load('audio/police.wav')
+    else:
+        pass #blank for now
+    # Then play the sound
+    pygame.mixer.music.play()
+    while pygame.mixer.music.get_busy():
+        pass
+    # Quit helper program when done
+    pygame.quit()
+
+
+
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
 # Intro/ welcome
@@ -112,7 +129,9 @@ print() # Print new lines to make the end more clear
 print()
 print(f"Money: {str(money)}")
 print(f"Points: {str(points)}")
-time.sleep(3) # Hold the screen
+print()
+print()
+time.sleep(1) # Hold the screen
 
 # Trick question 1
 trick_question("Do you want to buy an iPhone for $1,000? ", "An iPhone is out of your budget", "UPDATE: iPhone skipped")
@@ -125,7 +144,7 @@ if user_choice == 'y':
     print("UPDATE: Checkout complete!")
 else:
     clear_console()
-    # Siren
+    play_sound_effect('police')
     print("GAME OVER: It is illegal to steal.")
     time.sleep(5) # Siren duration
     exit()
