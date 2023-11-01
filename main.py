@@ -76,7 +76,7 @@ def update_money(subtraction):
 time.sleep(1) # Allows pygame to load
 clear_console()
 give_credit()
-time.sleep(3) # Hold credits on screen for a bit
+time.sleep(1) # Hold credits on screen for a bit, but extend for final game
 clear_console()
 print("For now, just type y or n for each question")
 
@@ -91,14 +91,21 @@ else:
 
 # Buy things y/n
 money, points = ask_to_buy('beans', 3, 1, money, points)
-ask_to_buy('eggs', 5, 1)
-ask_to_buy('milk', 5, 3)
-ask_to_buy('bread', 4, 1)
-ask_to_buy('coffee', 8, 2)
-ask_to_buy('fruit', 18, 4)
-ask_to_buy('veggies', 15, 2)
-ask_to_buy('candy', 5, 1)
-ask_to_buy('book', 15, 1)
+money, points = ask_to_buy('eggs', 5, 1, money, points)
+money, points = ask_to_buy('milk', 5, 3, money, points)
+money, points = ask_to_buy('bread', 4, 1, money, points)
+money, points = ask_to_buy('coffee', 8, 2, money, points)
+money, points = ask_to_buy('fruit', 18, 4, money, points)
+money, points = ask_to_buy('veggies', 15, 2, money, points)
+money, points = ask_to_buy('candy', 5, 1, money, points)
+money, points = ask_to_buy('book', 15, 1, money, points)
+
+# For testing, let's print out the money and points left
+print() # Print new lines to make the end more clear
+print()
+print(f"Money: {str(money)}")
+print(f"Points: {str(points)}")
+time.sleep(1000000) # Hold the screen
 
 # iPhone trick question
 buy_iphone = input("Do you want to buy an iPhone for $1,000?")
