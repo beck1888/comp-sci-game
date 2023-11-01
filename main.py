@@ -36,7 +36,7 @@ def give_credit():
 def is_valid_input(input_to_check):
     print("function not written yet")
 
-def ask_to_buy(item, cost, point_penalty):
+def ask_to_buy(item, cost, point_penalty, money, points):
     choice = input(f"Do you want to buy {item} for ${cost}? ")
     if choice == 'y':
         money = money - cost # use return values
@@ -47,6 +47,7 @@ def ask_to_buy(item, cost, point_penalty):
         points = points - point_penalty
         # Don't show the user point penalty, they have to infer
         print(f"UPDATE: {item} skipped")
+    return money, points
 
 
 def game_over(reason):
@@ -89,7 +90,7 @@ else:
     game_over("You need a shopping cart to go shopping")
 
 # Buy things y/n
-ask_to_buy('beans', 3, 1)
+money, points = ask_to_buy('beans', 3, 1, money, points)
 ask_to_buy('eggs', 5, 1)
 ask_to_buy('milk', 5, 3)
 ask_to_buy('bread', 4, 1)
