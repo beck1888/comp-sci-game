@@ -1,9 +1,10 @@
 # Main.py
 
 # Imports
+import os
+import time
 import pygame # pygame is NEEDED for the file to run (it handles sound)
-for _ in range(3):
-    print(f"/n/n/n") # 'clears' screen
+
 
 # Make some vars global
 global money
@@ -17,6 +18,9 @@ points = 10
 #// put a 'shopping cart' list here
 
 # Def functions
+def clear_console():
+  os.system('cls' if os.name == 'nt' else 'clear')
+
 def give_credit():
     print(
         '''CREDITS:
@@ -65,9 +69,16 @@ def update_money(subtraction):
     else:
         return
 
+#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
 # Intro/ welcome
-print("For now, just type y or n for each question")
+time.sleep(1) # Allows pygame to load
+clear_console()
 give_credit()
+time.sleep(3) # Hold credits on screen for a bit
+clear_console()
+print("For now, just type y or n for each question")
+
 
 # Code/game
 
