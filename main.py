@@ -44,7 +44,8 @@ def ask_to_buy(item, cost, point_penalty, money, points):
     if choice == 'y':
         money = money - cost # use return values
         print(f"UPDATE: {item} added to cart")
-        play_sound_effect('buy')
+        # play_sound_effect('buy')
+        '''Not using playsound b/c it slows it down here, only for the end'''
         # Add item to shopping cart list
         # break?
     else:
