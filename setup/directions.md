@@ -1,3 +1,17 @@
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+PROJECT TRACKING
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+[ ] 12 'if' blocks
+    [ ] At least 6 have 'elif'
+    [ ] At least 3 have 'if, elif, else'
+
+[ ] 12 user input requests 
+    [ ] At least 2 are converted to a number
+    [ ] At least 4 use input validation (+ try again)
+
+[ ] 5 f-strings
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
 Instructions
 Goal: Make a text-based game.
 
