@@ -80,8 +80,8 @@ def trick_question(question, game_over_note, update_when_no):
     user_choice = input(f"{question}")
     if user_choice == 'y':
         clear_console()
-        play_sound_effect('game_over') 
         print(f"GAME OVER: {game_over_note}.")
+        play_sound_effect('game_over') 
         time.sleep(2)
         clear_console()
         exit()
@@ -114,7 +114,8 @@ def check_age():
         years_until_allowed = 12 - age
         print(f"Sorry, but you are too young to shop alone. Come back in {years_until_allowed} years.")
         time.sleep(4)
-    elif age > 999:
+        exit()
+    elif age > 120:
         print(f"No way you are {age} years old. Try again.")
         time.sleep(2)
         clear_console
@@ -124,29 +125,36 @@ def check_age():
 # CODE STARTS BELOW HERE | FUNCTION DEFINITIONS ARE ABOVE
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
-
 # Intro/ welcome
-time.sleep(2) # Allows pygame to load
+time.sleep(0) # Allows pygame to load #UPDATE FOR FINAL
 clear_console()
-time.sleep(1)
+time.sleep(0) #UPDATE FOR FINAL
 give_credit()
-time.sleep(1.5) # Hold credits on screen for a bit, but extend for final game
+time.sleep(0) # Hold credits on screen for a bit, but extend for final game#UPDATE FOR FINAL
 clear_console()
 
 # Intro (w/ asking stuff)
-current_time = str(datetime.datetime.now())
-print(f"Welcome! The time is currently {current_time}.")
+now = datetime.datetime.now()
+formatted_time = now.strftime('%I:%M %p')
+print(f"Welcome! The time is currently {formatted_time}.")
 print()
 print("Just a few questions before we start...")
 username = input("What is your name: ")
 check_age()
 
+# Directions
+print("\nHOW TO PLAY: For each question, type 'y' or 'n'\n")
+
 
 # Cart
-if input("Do you want to get a shopping cart?: ") == 'y':
+if input("Do you want to get a shopping cart: ") == 'y':
     pass
 else:
-    game_over("You need a shopping cart to go shopping")
+    print("GAME OVER: You need a shopping cart to go shopping")
+    play_sound_effect('game_over')
+    exit()
+
+# List how much money, points, and concept of game/points
 
 # Buy things y/n
 money, points = ask_to_buy('beans', 3, 1, money, points)
@@ -201,7 +209,7 @@ if user_choice == 'y':
     pass # Win
 else:
     clear_console()
-    play_sound_effect('game_win')
+    play_sound_effect('game_over')
     print("GAME OVER: Your food went rotten.")
     time.sleep(2)
     clear_console()
@@ -211,7 +219,7 @@ else:
 clear_console()
 print(f"You have {money} dollars and {points} points left!!!")
 print("You win!!! Nice job!!!")
-# play win sound
+play_sound_effect('game_win')
 time.sleep(2)
 clear_console()
 
