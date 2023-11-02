@@ -78,7 +78,12 @@ def update_money(subtraction):
 def trick_question(question, game_over_note, update_when_no):
     user_choice = input(f"{question}")
     if user_choice == 'y':
-        game_over(str(game_over_note))
+        clear_console()
+        play_sound_effect('game_over') 
+        print(f"GAME OVER: {game_over_note}.")
+        time.sleep(2)
+        clear_console()
+        exit()
     else:
         print(str(update_when_no))
 
@@ -88,6 +93,10 @@ def play_sound_effect(name):
         pygame.mixer.music.load('audio/police.wav')
     elif name == 'buy':
         pygame.mixer.music.load('audio/buy.wav')
+    elif name == 'game_over':
+        pygame.mixer.music.load('audio/game_over.wav')
+    elif name == 'game_win':
+        pygame.mixer.music.load('audio/game_win.wav')
     else:
         pass #blank for now
     # Then play the sound
@@ -147,11 +156,13 @@ trick_question("Do you want to buy an iPhone for $1,000? ", "An iPhone is out of
 user_choice = input("Do you want to pay for your stuff? ")
 if user_choice == 'y':
     print("UPDATE: Checkout complete!")
+    play_sound_effect('buy')
 else:
     clear_console()
-    play_sound_effect('police')
     print("GAME OVER: It is illegal to steal.")
-    time.sleep(5) # Siren duration
+    play_sound_effect('police')
+    time.sleep(2)
+    clear_console()
     exit()
 
 user_choice = input("Do you want to drive home at 100mph? ")
@@ -159,9 +170,9 @@ if user_choice == 'n':
     print("UPDATE: You made it home safe and sound!")
 else:
     clear_console()
-    # Siren
     print("GAME OVER: You got a ticket for more than your remaining budget.")
-    time.sleep(5) # Siren duration
+    play_sound_effect('police')
+    time.sleep(2)
     exit()
 
 user_choice = input("Do you want to put away your purchase right away? ")
@@ -169,9 +180,10 @@ if user_choice == 'y':
     pass # Win
 else:
     clear_console()
-    # Fail sound 
+    play_sound_effect('game_win')
     print("GAME OVER: Your food went rotten.")
-    time.sleep(10) # Duration of the fail sound
+    time.sleep(2)
+    clear_console()
     exit()
 
 # WIN!!!
@@ -179,6 +191,8 @@ clear_console()
 print(f"You have {money} dollars and {points} points left!!!")
 print("You win!!! Nice job!!!")
 # play win sound
+time.sleep(2)
+clear_console()
 
 
 # Ask to pay for stuff
