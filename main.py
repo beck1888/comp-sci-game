@@ -3,6 +3,7 @@
 # Imports
 import os
 import time
+import datetime
 import pygame # pygame is NEEDED for the file to run (it handles sound)
 
 # Start helper apps
@@ -109,17 +110,21 @@ def play_sound_effect(name):
 
 
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+# CODE STARTS BELOW HERE | FUNCTION DEFINITIONS ARE ABOVE
+#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
 
 # Intro/ welcome
-time.sleep(1) # Allows pygame to load
+time.sleep(2) # Allows pygame to load
 clear_console()
+time.sleep(1)
 give_credit()
-time.sleep(1) # Hold credits on screen for a bit, but extend for final game
+time.sleep(1.5) # Hold credits on screen for a bit, but extend for final game
 clear_console()
-print("For now, just type y or n for each question")
-
 
 # Code/game
+time.clock_gettime()
+print("")
 
 # Cart
 if input("Do you want to get a shopping cart?: ") == 'y':
