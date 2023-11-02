@@ -44,6 +44,7 @@ def ask_to_buy(item, cost, point_penalty, money, points):
     if choice == 'y':
         money = money - cost # use return values
         print(f"UPDATE: {item} added to cart")
+        play_sound_effect('buy')
         # Add item to shopping cart list
         # break?
     else:
@@ -81,8 +82,11 @@ def trick_question(question, game_over_note, update_when_no):
         print(str(update_when_no))
 
 def play_sound_effect(name):
+    pygame.init() # Get ready to play the sound
     if name == 'police':
         pygame.mixer.music.load('audio/police.wav')
+    elif name == 'buy':
+        pygame.mixer.music.load('audio/buy.wav')
     else:
         pass #blank for now
     # Then play the sound
