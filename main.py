@@ -107,7 +107,18 @@ def play_sound_effect(name):
     # Quit helper program when done
     pygame.quit()
 
-
+# Check age function
+def check_age():
+    age = int(input("How old are you: "))
+    if age < 12:
+        years_until_allowed = 12 - age
+        print(f"Sorry, but you are too young to shop alone. Come back in {years_until_allowed} years.")
+        time.sleep(4)
+    elif age > 999:
+        print(f"No way you are {age} years old. Try again.")
+        time.sleep(2)
+        clear_console
+        check_age()
 
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 # CODE STARTS BELOW HERE | FUNCTION DEFINITIONS ARE ABOVE
@@ -122,9 +133,14 @@ give_credit()
 time.sleep(1.5) # Hold credits on screen for a bit, but extend for final game
 clear_console()
 
-# Code/game
-time.clock_gettime()
-print("")
+# Intro (w/ asking stuff)
+current_time = str(datetime.datetime.now())
+print(f"Welcome! The time is currently {current_time}.")
+print()
+print("Just a few questions before we start...")
+username = input("What is your name: ")
+check_age()
+
 
 # Cart
 if input("Do you want to get a shopping cart?: ") == 'y':
