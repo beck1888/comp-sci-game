@@ -27,7 +27,7 @@ def clear_console():
 def give_credit():
     print(
         '''CREDITS:
-        Thank you to freesound.org for providing the sound clips used in this project.
+        Thank you to freesound.org for providing the sound clips used in this project. For the more formal version of this, check out /setup/audio_credits.md
 
         > buy.wav [Creative Commons 0] ... https://freesound.org/people/CapsLok/sounds/184438/ 
         > game_over.wav [Creative Commons 4.0] ... https://freesound.org/people/Doctor_Jekyll/sounds/240195/ (shortened in QuickTime)
