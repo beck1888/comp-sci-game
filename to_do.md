@@ -12,3 +12,10 @@
 5. Run through every possibility again
 
 6. Figure out how to share w/o giving up personal GitHub username
+
+7. Explain in intro how points = happiness/ preparedness (0 or more money) (1 or more points)
+
+
+- Add game fail sound when money or points not enough
+- ERROR: Money always short?
+- Display budget

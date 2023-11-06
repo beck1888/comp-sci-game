@@ -5,6 +5,7 @@ import os
 import time
 import datetime
 import pygame # pygame is NEEDED for the file to run (it handles sound)
+import math
 
 # Start helper apps
 pygame.init()
@@ -107,19 +108,41 @@ def play_sound_effect(name):
     # Quit helper program when done
     pygame.quit()
 
+def validate_age_input(age):
+    if age.isdigit():
+        pass # can proceed because is int
+    else:
+        # Error not int value for age, ask user to retry
+        print("ERROR: Please enter your age as an integer")
+        check_age()
+
+
 # Check age function
 def check_age():
-    age = int(input("How old are you: "))
-    if age < 12:
-        years_until_allowed = 12 - age
+    age = input("How old are you: ")
+    validate_age_input(age)
+    if int(age) < 12:
+        years_until_allowed = 12 - int(age)
         print(f"Sorry, but you are too young to shop alone. Come back in {years_until_allowed} years.")
         time.sleep(4)
         exit()
-    elif age > 120:
+    elif int(age) > 120:
         print(f"No way you are {age} years old. Try again.")
-        time.sleep(2)
         clear_console
         check_age()
+
+
+def enough_money_left(money_check):
+    if int(money_check) < 0:
+        return 'ok'
+    else:
+        return 'no'
+    
+def enough_points_left(points_check):
+    if int(points_check) < 0:
+        return 'ok'
+    else:
+        return 'no'
 
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 # CODE STARTS BELOW HERE | FUNCTION DEFINITIONS ARE ABOVE
@@ -167,6 +190,10 @@ money, points = ask_to_buy('veggies', 15, 2, money, points)
 money, points = ask_to_buy('candy', 5, 1, money, points)
 money, points = ask_to_buy('book', 15, 1, money, points)
 
+# Trick question (1 - shopping)
+trick_question("Do you want to buy an iPhone for $1,000? ", "An iPhone is out of your budget", "UPDATE: iPhone skipped")
+
+
 # For testing, let's print out the money and points left
 print() # Print new lines to make the end more clear
 print()
@@ -176,10 +203,32 @@ print()
 print()
 time.sleep(1) # Hold the screen
 
-# Trick question 1
-trick_question("Do you want to buy an iPhone for $1,000? ", "An iPhone is out of your budget", "UPDATE: iPhone skipped")
-
 # Validate money and points
+print("Ringing you up now")
+for _ in range(3):
+    print()
+
+if enough_money_left(money) == '1':
+    pass # Enough money
+else:
+    for _ in range(3):
+        print()
+        time.sleep(1)
+        short_money = abs(money)
+        print(f"You were ${short_money} short")
+        exit()
+
+if enough_points_left(points) == '1':
+    pass # Enough points
+else:
+    for _ in range(3):
+        print()
+        time.sleep(1)
+        short_points = abs(money) + 1
+        print(f"You were {short_points} points short")
+        exit()
+
+
 
 # More trick questions if money was validated
 user_choice = input("Do you want to pay for your stuff? ")
