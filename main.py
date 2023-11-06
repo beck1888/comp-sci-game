@@ -114,12 +114,13 @@ def validate_age_input(age):
     else:
         # Error not int value for age, ask user to retry
         print("ERROR: Please enter your age as an integer")
+        age = 0
         check_age()
 
 
 # Check age function
 def check_age():
-    age = input("How old are you: ")
+    age = input(f"How old are you, {username}: ")
     validate_age_input(age)
     if int(age) < 12:
         years_until_allowed = 12 - int(age)
