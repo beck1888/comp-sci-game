@@ -110,26 +110,30 @@ def play_sound_effect(name):
 
 def validate_age_input(age):
     if age.isdigit():
-        pass # can proceed because is int
+        # can proceed because is int
+        return True
     else:
         # Error not int value for age, ask user to retry
         print("ERROR: Please enter your age as an integer")
         age = 0
-        check_age()
+        return False
 
 
 # Check age function
 def check_age():
     age = input(f"How old are you, {username}: ")
-    validate_age_input(age)
-    if int(age) < 12:
-        years_until_allowed = 12 - int(age)
-        print(f"Sorry, but you are too young to shop alone. Come back in {years_until_allowed} years.")
-        time.sleep(4)
-        exit()
-    elif int(age) > 120:
-        print(f"No way you are {age} years old. Try again.")
-        clear_console
+    ok_to_proceed = validate_age_input(age)
+    if ok_to_proceed == True:
+        if int(age) < 12:
+            years_until_allowed = 12 - int(age)
+            print(f"Sorry, but you are too young to shop alone. Come back in {years_until_allowed} years.")
+            time.sleep(4)
+            exit()
+        elif int(age) > 120:
+            print(f"No way you are {age} years old. Try again.")
+            clear_console
+            check_age()
+    else:
         check_age()
 
 
