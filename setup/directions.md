@@ -1,15 +1,18 @@
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 PROJECT TRACKING:
+//Last update was on Mon, Nov 6, 2023 at around 9:30 AM
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
-[ ] 12 'if' blocks
-    [ ] At least 6 have 'elif'
-    [ ] At least 3 have 'if, elif, else'
+[~ 16] 12 'if' blocks
+    [2 separate blocks] At least 6 have 'elif' # Currently not counting ask_to_buy()
+    [2] At least 3 have 'if, elif, else' # Currently not counting ask_to_buy()
 
-[ ] 12 user input requests 
-    [ ] At least 2 are converted to a number
-    [ ] At least 4 use input validation (+ try again)
+[~ 14] 12 user input requests 
+    [1] At least 2 are converted to a number
+    [age, ] At least 4 use input validation (+ try again)
 
-[ ] 5 f-strings
+[15] 5 f-strings
+
+//NOTE: Each call of ask_to_buy counts as a use of each element, so while input may not be written out 12 times, it is used more than 12 times
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
 Instructions
