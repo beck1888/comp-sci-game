@@ -194,6 +194,25 @@ def listen_to_radio():
         print(f"{station} is not an FM station in the USA. Please try again with a valid station between 88.1 and 107.9\n")
         listen_to_radio()
 
+def robot_test(name):
+    print("To confirm you are not a robot, please type your name again")
+    username_input = input(">> ")
+    if username_input == name:
+        print("You are not a robot. Carry on...\n")
+        pass
+    else:
+        retry_robot(username_input, name)
+
+def retry_robot(last_response, correct):
+    print(f"That's not quite right. {last_response} is not what you said at the start. Please try typing the same name you used to being with again.")
+    name_typed = input(">> ")
+    if name_typed == correct:
+        print("You are correct. Carry on...")
+        pass
+    else:
+        print()
+        retry_robot(name_typed, correct)
+
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 # CODE STARTS BELOW HERE | FUNCTION DEFINITIONS ARE ABOVE
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
@@ -215,6 +234,10 @@ print()
 print("Just a few questions before we start...")
 username = input("What is your name: ")
 check_age()
+time.sleep(1.5)
+clear_console()
+robot_test(username)
+time.sleep(1.5)
 
 # Directions
 print("\nHOW TO PLAY: For each question, type 'y' or 'n'\n")
