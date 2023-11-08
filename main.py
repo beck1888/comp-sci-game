@@ -267,15 +267,22 @@ else:
     clear_console()
     exit()
 
-user_choice = input("Do you want to drive home at 100mph? ")
-if user_choice == 'n':
-    print("UPDATE: You made it home safe and sound!")
-else:
+user_choice = input("How many MPH will you drive home on the highway? ")
+if user_choice == '65':
+    print("UPDATE: Wow, 65 on the dot!")
+    print("Somebody must have paid attention during drivers ed...")
+    pass
+elif user_choice > 80: 
     clear_console()
+    print("80+ MPH. Really..? WAY too fast.")
     print("GAME OVER: You got a ticket for more than your remaining budget.")
     play_sound_effect('police')
     time.sleep(2)
     exit()
+elif user_choice < 50:
+    print("UPDATE: You made it home, but please go a little faster next time")
+else:
+    print("UPDATE: You made it home safe and sound because you were a good driver!")
 
 user_choice = input("Do you want to put away your purchase right away? ")
 if user_choice == 'y':
