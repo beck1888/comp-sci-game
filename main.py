@@ -149,6 +149,26 @@ def enough_points_left(points_check):
     else:
         return 'no'
 
+
+def is_store_open():
+    # gets the current time as 24 hrs
+    time_now = datetime.datetime.now().time()
+
+    # Converts the time to minutes
+    time_in_minutes = time_now.hour * 60 + time_now.minute
+
+    # See if it's to early/late to play
+    # 5:30 am = 330 (open)
+    # 11:30 PM = 1,410 (close)
+
+    if time_in_minutes < 330:
+        print("It's too early, the store is closed. Come back at 5:30 AM")
+        exit()
+    elif time_in_minutes > 1410:
+        print("Sorry, but the store closed at 11:30 PM")
+        exit()
+    else:
+        pass # ok shopping time
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 # CODE STARTS BELOW HERE | FUNCTION DEFINITIONS ARE ABOVE
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
@@ -164,6 +184,7 @@ clear_console()
 # Intro (w/ asking stuff)
 now = datetime.datetime.now()
 formatted_time = now.strftime('%I:%M %p')
+is_store_open()
 print(f"Welcome! The time is currently {formatted_time}.")
 print()
 print("Just a few questions before we start...")
@@ -199,14 +220,14 @@ money, points = ask_to_buy('book', 15, 1, money, points)
 trick_question("Do you want to buy an iPhone for $1,000? ", "An iPhone is out of your budget", "UPDATE: iPhone skipped")
 
 
-# For testing, let's print out the money and points left
-print() # Print new lines to make the end more clear
-print()
-print(f"Money: {str(money)}")
-print(f"Points: {str(points)}")
-print()
-print()
-time.sleep(1) # Hold the screen
+# # For testing, let's print out the money and points left
+# print() # Print new lines to make the end more clear
+# print()
+# print(f"Money: {str(money)}")
+# print(f"Points: {str(points)}")
+# print()
+# print()
+# time.sleep(1) # Hold the screen
 
 # Validate money and points
 print("Ringing you up now")
@@ -232,8 +253,6 @@ else:
         short_points = abs(money) + 1
         print(f"You were {short_points} points short")
         exit()
-
-
 
 # More trick questions if money was validated
 user_choice = input("Do you want to pay for your stuff? ")
@@ -276,9 +295,3 @@ print("You win!!! Nice job!!!")
 play_sound_effect('game_win')
 time.sleep(2)
 clear_console()
-
-
-# Ask to pay for stuff
-# Make sure enough money exists
-# Drive home
-# Put stuff away

@@ -2,7 +2,7 @@
 PROJECT TRACKING:
 //Last update was on Mon, Nov 6, 2023 at around 9:30 AM
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
-[~ 16] 12 'if' blocks
+✅ [~ 16] 12 'if' blocks
     [2 separate blocks] At least 6 have 'elif' # Currently not counting ask_to_buy()
     [2] At least 3 have 'if, elif, else' # Currently not counting ask_to_buy()
 
