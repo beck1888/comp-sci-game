@@ -213,16 +213,24 @@ def retry_robot(last_response, correct):
         print()
         retry_robot(name_typed, correct)
 
+def rate_the_game():
+    like = int(input("On a scale of 1-5, how much did you like this game? "))
+    if like <= 5 and like >= 1:
+        print('Thanks for the feedback!')
+    else:
+        print(f"{like} is not between 1 and 5. Try again.")
+        rate_the_game()
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 # CODE STARTS BELOW HERE | FUNCTION DEFINITIONS ARE ABOVE
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
 # Intro/ welcome
-time.sleep(0) # Allows pygame to load #UPDATE FOR FINAL
+time.sleep(1) # Allows pygame to load #UPDATE FOR FINAL
 clear_console()
-time.sleep(0) #UPDATE FOR FINAL
+time.sleep(1) #UPDATE FOR FINAL
 give_credit()
-time.sleep(0) # Hold credits on screen for a bit, but extend for final game #UPDATE FOR FINAL
+
+input("\n\n\nPress 'ENTER' to skip credits...")
 clear_console()
 
 # Intro (w/ asking stuff)
@@ -234,7 +242,7 @@ print()
 print("Just a few questions before we start...")
 username = input("What is your name: ")
 check_age()
-time.sleep(1.5)
+time.sleep(0.5)
 clear_console()
 robot_test(username)
 time.sleep(1.5)
@@ -366,3 +374,6 @@ print("You win!!! Nice job!!!")
 play_sound_effect('game_win')
 time.sleep(2)
 clear_console()
+
+# Ask if game was liked
+rate_the_game()
