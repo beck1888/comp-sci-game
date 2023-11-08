@@ -3,11 +3,11 @@ PROJECT TRACKING:
 //Last update was on Mon, Nov 6, 2023 at around 9:30 AM
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 ✅ [~ 16] 12 'if' blocks
-    [4] At least 6 have 'elif'
-    [3] At least 3 have 'if, elif, else'
+    [5] At least 6 have 'elif'
+    [4] At least 3 have 'if, elif, else'
 
 [~ 14] 12 user input requests 
-    [1] At least 2 are converted to a number
+    [2] At least 2 are converted to a number
     [age, ] At least 4 use input validation (+ try again)
 
 [15] 5 f-strings

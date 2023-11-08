@@ -138,13 +138,13 @@ def check_age():
 
 
 def enough_money_left(money_check):
-    if int(money_check) < 0:
+    if int(money_check) > 0:
         return 'ok'
     else:
         return 'no'
     
 def enough_points_left(points_check):
-    if int(points_check) < 0:
+    if int(points_check) > 0:
         return 'ok'
     else:
         return 'no'
@@ -169,6 +169,9 @@ def is_store_open():
         exit()
     else:
         pass # ok shopping time
+
+
+
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 # CODE STARTS BELOW HERE | FUNCTION DEFINITIONS ARE ABOVE
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
@@ -230,28 +233,35 @@ trick_question("Do you want to buy an iPhone for $1,000? ", "An iPhone is out of
 # time.sleep(1) # Hold the screen
 
 # Validate money and points
-print("Ringing you up now")
+print("\nRinging you up now")
 for _ in range(3):
-    print()
+    print('.')
+    time.sleep(0.75)
+print()
 
-if enough_money_left(money) == '1':
+if enough_money_left(money) == 'ok':
     pass # Enough money
 else:
     for _ in range(3):
         print()
         time.sleep(1)
         short_money = abs(money)
-        print(f"You were ${short_money} short")
+        print(f"GAME OVER: You were ${short_money} short")
+        play_sound_effect('game_over')
+        time.sleep(2)
+        exit()
         exit()
 
-if enough_points_left(points) == '1':
+if enough_points_left(points) == 'ok':
     pass # Enough points
 else:
     for _ in range(3):
         print()
         time.sleep(1)
-        short_points = abs(money) + 1
-        print(f"You were {short_points} points short")
+        short_points = abs(points) + 1
+        print(f"GAME OVER: You were {short_points} points short")
+        play_sound_effect('game_over')
+        time.sleep(2)
         exit()
 
 # More trick questions if money was validated
@@ -284,13 +294,15 @@ elif user_choice < 50:
 else:
     print("UPDATE: You made it home safe and sound because you were a good driver!")
 
-user_choice = input("Do you want to put away your purchase right away? ")
-if user_choice == 'y':
+user_choice = float(input("In how many minutes do you want to put your food away? "))
+if user_choice < 4:
     pass # Win
+elif user_choice < 30:
+    print("Some of your food went rotten, but I'll still let you win because I'm nice")
 else:
     clear_console()
     play_sound_effect('game_over')
-    print("GAME OVER: Your food went rotten.")
+    print("GAME OVER: All of your food went rotten.")
     time.sleep(2)
     clear_console()
     exit()
