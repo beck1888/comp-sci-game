@@ -171,6 +171,28 @@ def is_store_open():
         pass # ok shopping time
 
 
+def listen_to_radio():
+    print()
+    station = input("What radio station do you want to listen to (i.e. 101.3): ")
+
+    # check if input can be made into a float
+    try:
+        float_value = float(station)
+        # Can be made into a float
+        pass
+    except ValueError:
+        # Cannot be made into a float
+        print("ERROR: Improper format. Please format the station like one of these [99.6, 100.0, or 102.3]\n")
+        listen_to_radio()
+    
+    # See if within US frequency bands
+    station_float = float(station)
+    if station_float > 88.1 and station_float < 107.9:
+        print(f"Great choice! I also love {station}!")
+        pass
+    else:
+        print(f"{station} is not an FM station in the USA. Please try again with a valid station between 88.1 and 107.9\n")
+        listen_to_radio()
 
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 # CODE STARTS BELOW HERE | FUNCTION DEFINITIONS ARE ABOVE
@@ -181,7 +203,7 @@ time.sleep(0) # Allows pygame to load #UPDATE FOR FINAL
 clear_console()
 time.sleep(0) #UPDATE FOR FINAL
 give_credit()
-time.sleep(0) # Hold credits on screen for a bit, but extend for final game#UPDATE FOR FINAL
+time.sleep(0) # Hold credits on screen for a bit, but extend for final game #UPDATE FOR FINAL
 clear_console()
 
 # Intro (w/ asking stuff)
@@ -233,7 +255,7 @@ trick_question("Do you want to buy an iPhone for $1,000? ", "An iPhone is out of
 # time.sleep(1) # Hold the screen
 
 # Validate money and points
-print("\nRinging you up now")
+print("\nChecking your remaining budget")
 for _ in range(3):
     print('.')
     time.sleep(0.75)
@@ -277,10 +299,12 @@ else:
     clear_console()
     exit()
 
-user_choice = input("How many MPH will you drive home on the highway? ")
+user_choice = int(input("How many MPH will you drive home on the highway? "))
 if user_choice == '65':
-    print("UPDATE: Wow, 65 on the dot!")
+    print("Wow, 65 on the dot!")
     print("Somebody must have paid attention during drivers ed...")
+    listen_to_radio()
+    print("Update: you made it home!")
     pass
 elif user_choice > 80: 
     clear_console()
@@ -290,8 +314,11 @@ elif user_choice > 80:
     time.sleep(2)
     exit()
 elif user_choice < 50:
-    print("UPDATE: You made it home, but please go a little faster next time")
+    print("UPDATE: You will make it home without issues, but 50 MPH is slow for the highway, just saying...")
+    listen_to_radio()
+    print("You made it home!")
 else:
+    listen_to_radio()
     print("UPDATE: You made it home safe and sound because you were a good driver!")
 
 user_choice = float(input("In how many minutes do you want to put your food away? "))
