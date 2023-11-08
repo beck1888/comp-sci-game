@@ -218,6 +218,8 @@ check_age()
 
 # Directions
 print("\nHOW TO PLAY: For each question, type 'y' or 'n'\n")
+print("You have an unknown budget, but your goal is to stay within that budget.")
+print("You also have 'points'. Your amount of points is also unknown to you. Keep in mind that you lose points every time you don't buy something. The amount of points you will loose depends on how important the thing you didn't buy is to daily life.\n")
 
 
 # Cart
