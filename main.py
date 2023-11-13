@@ -347,7 +347,7 @@ elif user_choice > 80:
     time.sleep(2)
     exit()
 elif user_choice < 50:
-    print("UPDATE: You will make it home without issues, but 50 MPH is slow for the highway, just saying...")
+    print("UPDATE: You will make it home without issues, but below 50 MPH is slow for the highway, just saying...")
     listen_to_radio()
     print("You made it home!")
 else:
